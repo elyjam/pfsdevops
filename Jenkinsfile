@@ -68,7 +68,7 @@ pipeline {
         }
         stage('K8s Deploy') {
             steps {
-               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: ' devopsshack-cluster', contextName: '', credentialsId: 'k8s-token', namespace: 'webapps', serverUrl: 'https://72241905C35CB6C4F6D55139060613FC.gr7.us-east-1.eks.amazonaws.com ']]) {
+               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: ' devopsshack-cluster', contextName: '', credentialsId: 'k8s-token', namespace: 'webapps', serverUrl: 'https://72241905C35CB6C4F6D55139060613FC.gr7.us-east-1.eks.amazonaws.com']]) {
                     sh "kubectl apply -f deployment-service.yml"
                     sleep 20
                 }
@@ -76,7 +76,7 @@ pipeline {
         }
         stage('Verify Deployment') {
             steps {
-               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: ' devopsshack-cluster', contextName: '', credentialsId: 'k8s-token', namespace: 'webapps', serverUrl: 'https://72241905C35CB6C4F6D55139060613FC.gr7.us-east-1.eks.amazonaws.com ']]) {
+               withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: ' devopsshack-cluster', contextName: '', credentialsId: 'k8s-token', namespace: 'webapps', serverUrl: 'https://72241905C35CB6C4F6D55139060613FC.gr7.us-east-1.eks.amazonaws.com']]) {
                     sh "kubectl get pods"
                     sh "kubectl get service"
                 }
