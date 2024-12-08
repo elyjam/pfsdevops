@@ -47,7 +47,7 @@ pipeline {
             steps {
                 script{
                 withDockerRegistry(credentialsId: 'dockerhub-credentials', url: 'https://index.docker.io/v1/') {
-                sh "docker build -t hajarzouhair/pfs_2024"
+                sh "docker build -t hajarzouhair/pfs_2024 ./Dockerfile"
                 }
                 }
             }
